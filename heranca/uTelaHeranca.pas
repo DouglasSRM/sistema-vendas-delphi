@@ -239,6 +239,7 @@ begin
                                             btnNavigator, pgcPrincipal, true);
       ControlarIndiceTab(pgcPrincipal, 0);
       LimparEdits;
+      QryListagem.Refresh;
     end
     else begin
       MessageDlg('Erro na Exclusão', mtError, [mbOK],0);
@@ -269,6 +270,7 @@ begin
       ControlarIndiceTab(pgcPrincipal, 0);
       EstadoDoCadastro := ecNenhum;
       LimparEdits;
+      QryListagem.Refresh;
     end
     else begin
       MessageDlg('Erro na Gravação', mtError, [mbOK],0);

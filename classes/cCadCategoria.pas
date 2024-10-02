@@ -2,8 +2,9 @@ unit cCadCategoria;
 
 interface
 
-uses System.Classes, Vcl.Controls, Vcl.ExtCtrls, Vcl.Dialogs,
-ZAbstractConnection, ZConnection; //lista de Units
+uses
+  System.Classes, System.SysUtils, Vcl.Controls, Vcl.ExtCtrls, Vcl.Dialogs,
+  ZAbstractConnection, ZConnection, ZAbstractRODataset, ZAbstractDataset, ZDataset;
 
 type
   TCategoria = class //Declaração do tipo da Classe
@@ -18,14 +19,14 @@ type
   public
     constructor Create(aConexao: TZConnection); //Construtor da Classe
     destructor Destroy; override;
-    function Gravar:Boolean;
+    function Inserir:Boolean;
     function Atualizar:Boolean;
     function Apagar:Boolean;
     function Selecionar(id:Integer):Boolean;
     //Variáveis públicas que podem ser trabalhadas fora da classe
   published
-    property codigo:Integer read getCodigo write setCodigo;
-    property descricao:String read getDescricao write setDescricao;
+    property codigo: Integer read getCodigo write setCodigo;
+    property descricao: String read getDescricao write setDescricao;
     //Variaveis públicas utilizadas para propriedades da classe
     //para fornecer informações em runtime
 
@@ -64,10 +65,25 @@ begin
   Result := true;
 end;
 
-function TCategoria.Gravar: Boolean;
+function TCategoria.Inserir: Boolean;
+  var QryGravar: TZQuery;
 begin
-  ShowMessage('Gravado');
-  Result := true;
+  try
+    Result := true;
+    QryGravar:= TZQuery.Create(nil);
+    QryGravar.Connection := ConexaoDB;
+    QryGravar.SQL.Clear;
+    QryGravar.SQL.Add('INSERT INTO categorias (descricao) values (:descricao)');
+    QryGravar.ParamByName('descricao').Value:= Self.F_descricao;
+    try
+      QryGravar.ExecSQL;
+    except
+      Result := false;
+    end;
+  finally
+    if Assigned(QryGravar) then
+       FreeAndNil(QryGravar)
+  end;
 end;
 
 function TCategoria.Selecionar(id: Integer): Boolean;
