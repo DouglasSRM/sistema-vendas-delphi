@@ -55,6 +55,8 @@ type
     IndiceAtual : String;
     function Apagar:Boolean; virtual;
     function Gravar(EstadoDoCadastro: TEstadoDoCadastro):Boolean; virtual;
+    function Capitalize(const Str: string):String;
+    function CapitalizeLbEdit(EditControl: TLabeledEdit): Boolean;
   end;
 
 var
@@ -95,18 +97,7 @@ begin
 
 end;
 
-procedure TfrmTelaHeranca.ControlarBotoes(btnNovo, btnAlterar, btnCancelar,
-          btnGravar, btnApagar:TBitBtn; btnNavigator: TDBNavigator;
-          pgcPrincipal: TPageControl; Flag:Boolean);
-begin
-  btnNovo.Enabled                  := Flag;
-  btnApagar.Enabled                := Flag;
-  btnAlterar.Enabled               := Flag;
-  btnNavigator.Enabled             := Flag;
-  pgcPrincipal.Pages[0].TabVisible := Flag;
-  btnCancelar.Enabled              := not(Flag);
-  btnGravar.Enabled                := not(Flag);
-end;
+
 procedure TfrmTelaHeranca.ControlarIndiceTab(pgcPrincipal: TPageControl; Indice: Integer);
 
 begin
@@ -143,8 +134,10 @@ begin
 end;
 
 procedure TfrmTelaHeranca.mskPesquisarChange(Sender: TObject);
+  var Search:String;
 begin
-  QryListagem.Locate(IndiceAtual, TMaskEdit(Sender).Text, [loPartialKey]);
+  Search := Capitalize(TMaskEdit(Sender).Text);
+  QryListagem.Locate(IndiceAtual, Search, [loPartialKey]);
 end;
 
 function TfrmTelaHeranca.ExisteCampoObrigatorio:Boolean;
@@ -200,22 +193,39 @@ end;
 function TfrmTelaHeranca.Apagar: Boolean;
 begin
   ShowMessage('Deletado');
+
   Result := True;
+
 end;
 
 function TfrmTelaHeranca.Gravar(EstadoDoCadastro: TEstadoDoCadastro): Boolean;
 begin
   if (EstadoDoCadastro = ecInserir) then
-      ShowMessage('Inserido')
-    else if (EstadoDoCadastro = ecAlterar) then
-      ShowMessage('Alterado');
+    ShowMessage('Inserido')
+  else if (EstadoDoCadastro = ecAlterar) then
+    ShowMessage('Alterado');
 
-    Result := True;
+  Result := True;
+
 end;
 
 {$endregion}
 
 {$region 'Controle de Botões'}
+
+procedure TfrmTelaHeranca.ControlarBotoes(btnNovo, btnAlterar, btnCancelar,
+          btnGravar, btnApagar:TBitBtn; btnNavigator: TDBNavigator;
+          pgcPrincipal: TPageControl; Flag:Boolean);
+begin
+  btnNovo.Enabled                  := Flag;
+  btnApagar.Enabled                := Flag;
+  btnAlterar.Enabled               := Flag;
+  btnNavigator.Enabled             := Flag;
+  pgcPrincipal.Pages[0].TabVisible := Flag;
+  btnCancelar.Enabled              := not(Flag);
+  btnGravar.Enabled                := not(Flag);
+end;
+
 procedure TfrmTelaHeranca.btnNovoClick(Sender: TObject);
 begin
   ControlarBotoes(btnNovo, btnAlterar, btnCancelar, btnGravar, btnApagar,
@@ -284,6 +294,59 @@ procedure TfrmTelaHeranca.btnFecharClick(Sender: TObject);
 begin
   Close;
 end;
+{$endregion}
+
+{$region 'Funções QoL'}
+function TfrmTelaHeranca.Capitalize(const Str: string):String;
+var
+  i: Integer;
+  InWord: Boolean;
+begin
+  Result := LowerCase(Str);
+  InWord := False;
+  Result := Result.TrimLeft;
+
+  i := 1;
+  while i <= Length(Result) do begin
+    if not InWord and (Result[i] <> ' ') then begin
+      Result[i] := UpCase(Result[i]);
+      InWord := true;
+    end
+    else if (Result[i] = ' ') and ((i < Length(Result)) and (Result[i+1] = ' ')) then begin
+      Delete(Result, i, 1);
+      Continue;
+    end
+    else if Result [i] = ' ' then InWord := False;
+
+    Inc(i);
+  end;
+end;
+
+function TfrmTelaHeranca.CapitalizeLbEdit(EditControl: TLabeledEdit): Boolean;
+var
+  updated: String;
+  oldOnChange: TNotifyEvent;
+  cursorPos: Integer;
+begin
+  Result := False;
+  updated := Capitalize(EditControl.Text);
+
+  if (EditControl.Text = updated) then Exit;
+
+  cursorPos := EditControl.SelStart;
+  oldOnChange := EditControl.OnChange;
+  EditControl.OnChange := nil;
+
+  try
+    EditControl.Text := updated;
+    EditControl.SelStart := cursorPos;
+    Result := True;
+  finally
+    EditControl.OnChange := oldOnChange;
+  end;
+
+end;
+
 {$endregion}
 
 end.

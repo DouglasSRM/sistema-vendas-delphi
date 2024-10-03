@@ -66,29 +66,52 @@ begin
 end;
 
 function TCategoria.Inserir: Boolean;
-  var QryGravar: TZQuery;
+  var Qry: TZQuery;
 begin
   try
     Result := true;
-    QryGravar:= TZQuery.Create(nil);
-    QryGravar.Connection := ConexaoDB;
-    QryGravar.SQL.Clear;
-    QryGravar.SQL.Add('INSERT INTO categorias (descricao) values (:descricao)');
-    QryGravar.ParamByName('descricao').Value:= Self.F_descricao;
+    Qry:= TZQuery.Create(nil);
+    Qry.Connection := ConexaoDB;
+    Qry.SQL.Clear;
+    Qry.SQL.Add('INSERT INTO categorias (descricao) values (:descricao)');
+    Qry.ParamByName('descricao').AsString:= getDescricao;
     try
-      QryGravar.ExecSQL;
+      Qry.ExecSQL;
     except
       Result := false;
     end;
   finally
-    if Assigned(QryGravar) then
-       FreeAndNil(QryGravar)
+    if Assigned(Qry) then
+       FreeAndNil(Qry)
   end;
 end;
 
 function TCategoria.Selecionar(id: Integer): Boolean;
+  var Qry: TZQuery;
 begin
-  Result := true;
+  try
+    Result := true;
+    Qry := TzQuery.Create(nil);
+    Qry.Connection := ConexaoDB;
+    Qry.SQL.Clear;
+    Qry.SQL.Add('SELECT categoriaID, ' +
+               '       descricao ' +
+               'FROM categorias ' +
+               'WHERE categoriaId = :categoriaId');
+    Qry.ParamByName('categoriaId').AsInteger := id;
+    try
+      Qry.Open;
+
+      setCodigo(Qry.FieldByName('categoriaId').AsInteger);
+      setDescricao(Qry.FieldByName('descricao').AsString);
+    except
+      Result := false;
+    end;
+  finally
+    if Assigned(Qry) then
+      FreeAndNil(Qry);
+  end;
+
 end;
 
 {$endregion}

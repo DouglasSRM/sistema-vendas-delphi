@@ -17,6 +17,8 @@ type
     edtDescricao: TLabeledEdit;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btnAlterarClick(Sender: TObject);
+    procedure edtDescricaoChange(Sender: TObject);
   private
     { Private declarations }
     oCategoria:TCategoria;
@@ -55,6 +57,25 @@ begin
 
 end;
 {$endregion}
+
+procedure TfrmCadCategoria.btnAlterarClick(Sender: TObject);
+begin
+  if oCategoria.Selecionar(QryListagem.FieldByName('categoriaId').AsInteger) then begin
+    edtCategotiaId.Text := IntToStr(oCategoria.codigo);
+    edtDescricao.Text := oCategoria.descricao;
+  end
+  else begin
+    btnCancelar.Click;
+    Abort;
+  end;
+
+  inherited;
+end;
+
+procedure TfrmCadCategoria.edtDescricaoChange(Sender: TObject);
+begin
+  CapitalizeLbEdit(edtDescricao);
+end;
 
 procedure TfrmCadCategoria.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
