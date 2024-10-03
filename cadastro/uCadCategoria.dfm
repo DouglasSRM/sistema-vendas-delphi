@@ -4,12 +4,9 @@ inherited frmCadCategoria: TfrmCadCategoria
   TextHeight = 15
   inherited pgcPrincipal: TPageControl
     ActivePage = tabManutencao
-    ExplicitWidth = 782
-    ExplicitHeight = 479
     inherited tabListagem: TTabSheet
       inherited pnlListagemTopo: TPanel
         StyleElements = [seFont, seClient, seBorder]
-        ExplicitWidth = 774
         inherited lblIndice: TLabel
           StyleElements = [seFont, seClient, seBorder]
         end
@@ -66,12 +63,6 @@ inherited frmCadCategoria: TfrmCadCategoria
   end
   inherited pnlRodape: TPanel
     StyleElements = [seFont, seClient, seBorder]
-    ExplicitTop = 479
-    ExplicitWidth = 782
-    inherited btnFechar: TBitBtn
-      Left = 684
-      ExplicitLeft = 682
-    end
     inherited btnNavigator: TDBNavigator
       Hints.Strings = ()
     end

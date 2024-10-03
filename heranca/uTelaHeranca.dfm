@@ -24,6 +24,8 @@ object frmTelaHeranca: TfrmTelaHeranca
     ActivePage = tabListagem
     Align = alClient
     TabOrder = 0
+    ExplicitWidth = 782
+    ExplicitHeight = 479
     object tabListagem: TTabSheet
       Caption = 'Listagem'
       object pnlListagemTopo: TPanel
@@ -33,6 +35,7 @@ object frmTelaHeranca: TfrmTelaHeranca
         Height = 81
         Align = alTop
         TabOrder = 0
+        ExplicitWidth = 774
         object lblIndice: TLabel
           Left = 20
           Top = 13
@@ -90,6 +93,8 @@ object frmTelaHeranca: TfrmTelaHeranca
     Height = 54
     Align = alBottom
     TabOrder = 1
+    ExplicitTop = 479
+    ExplicitWidth = 782
     DesignSize = (
       784
       54)
@@ -274,7 +279,7 @@ object frmTelaHeranca: TfrmTelaHeranca
       OnClick = btnApagarClick
     end
     object btnFechar: TBitBtn
-      Left = 686
+      Left = 684
       Top = 13
       Width = 75
       Height = 25
@@ -309,6 +314,7 @@ object frmTelaHeranca: TfrmTelaHeranca
         11B2050FB10107A0000188FF00FFFF00FFFF00FFFF00FFFF00FF}
       TabOrder = 5
       OnClick = btnFecharClick
+      ExplicitLeft = 682
     end
     object btnNavigator: TDBNavigator
       Left = 428

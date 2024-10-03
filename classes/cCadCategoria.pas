@@ -54,15 +54,58 @@ end;
 
 {$region 'Crud'}
 function TCategoria.Apagar: Boolean;
+  var Qry: TZQuery;
 begin
-  ShowMessage('Apagado');
-  Result := true;
+  if MessageDlg('Apagar o Registro: '+#13+#13+
+                'Código: '+IntToStr(getCodigo) +#13+
+                'Descrição: '+getDescricao,
+                mtConfirmation, [mbYes, mbNo],0) = mrNo then begin
+    Result := false;
+    abort;
+  end;
+
+
+  try
+    Result := true;
+    Qry:= TZQuery.Create(nil);
+    Qry.Connection := ConexaoDB;
+    Qry.SQL.Clear;
+    Qry.SQL.Add('DELETE FROM categorias ' +
+                ' WHERE categoriaId = :categoriaId ');
+    Qry.ParamByName('categoriaId').AsInteger := getCodigo;
+    try
+      Qry.ExecSQL;
+    except
+      Result := false;
+    end;
+  finally
+    if Assigned(Qry) then
+       FreeAndNil(Qry);
+  end;
 end;
 
 function TCategoria.Atualizar: Boolean;
+  var Qry: TZQuery;
 begin
-  ShowMessage('Atualizado');
-  Result := true;
+  try
+    Result := true;
+    Qry:= TZQuery.Create(nil);
+    Qry.Connection := ConexaoDB;
+    Qry.SQL.Clear;
+    Qry.SQL.Add('UPDATE categorias ' +
+                '   SET descricao = :descricao ' +
+                ' WHERE categoriaId = :categoriaId ');
+    Qry.ParamByName('categoriaId').AsInteger := getCodigo;
+    Qry.ParamByName('descricao').AsString:= getDescricao;
+    try
+      Qry.ExecSQL;
+    except
+      Result := false;
+    end;
+  finally
+    if Assigned(Qry) then
+       FreeAndNil(Qry);
+  end;
 end;
 
 function TCategoria.Inserir: Boolean;
@@ -82,7 +125,7 @@ begin
     end;
   finally
     if Assigned(Qry) then
-       FreeAndNil(Qry)
+       FreeAndNil(Qry);
   end;
 end;
 
