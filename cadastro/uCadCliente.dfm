@@ -3,12 +3,12 @@ inherited frmCadCliente: TfrmCadCliente
   StyleElements = [seFont, seClient, seBorder]
   TextHeight = 15
   inherited pgcPrincipal: TPageControl
-    ExplicitLeft = -48
-    ExplicitTop = -32
+    ActivePage = tabManutencao
+    ExplicitLeft = -8
+    ExplicitTop = 7
     inherited tabListagem: TTabSheet
       inherited pnlListagemTopo: TPanel
         StyleElements = [seFont, seClient, seBorder]
-        ExplicitWidth = 774
         inherited lblIndice: TLabel
           StyleElements = [seFont, seClient, seBorder]
         end
@@ -16,10 +16,48 @@ inherited frmCadCliente: TfrmCadCliente
           StyleElements = [seFont, seClient, seBorder]
         end
       end
+      inherited grdListagem: TDBGrid
+        Columns = <
+          item
+            Expanded = False
+            FieldName = 'clienteId'
+            Width = 51
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'nome'
+            Width = 201
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'telefone'
+            Width = 95
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'cep'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'endereco'
+            Width = 179
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'cidade'
+            Width = 158
+            Visible = True
+          end>
+      end
     end
     inherited tabManutencao: TTabSheet
       object lbCEP: TLabel
-        Left = 632
+        Left = 680
         Top = 54
         Width = 21
         Height = 15
@@ -43,7 +81,7 @@ inherited frmCadCliente: TfrmCadCliente
         Tag = 1
         Left = 16
         Top = 72
-        Width = 97
+        Width = 107
         Height = 23
         EditLabel.Width = 39
         EditLabel.Height = 15
@@ -57,7 +95,7 @@ inherited frmCadCliente: TfrmCadCliente
         Tag = 2
         Left = 136
         Top = 72
-        Width = 476
+        Width = 529
         Height = 23
         EditLabel.Width = 33
         EditLabel.Height = 15
@@ -65,11 +103,12 @@ inherited frmCadCliente: TfrmCadCliente
         MaxLength = 60
         TabOrder = 1
         Text = ''
+        OnChange = edtNomeChange
       end
       object edtCEP: TMaskEdit
-        Left = 632
+        Left = 680
         Top = 72
-        Width = 117
+        Width = 69
         Height = 23
         EditMask = '99.999-999;1;_'
         MaxLength = 10
@@ -87,6 +126,7 @@ inherited frmCadCliente: TfrmCadCliente
         MaxLength = 60
         TabOrder = 3
         Text = ''
+        OnChange = edtEnderecoChange
       end
       object edtBairro: TLabeledEdit
         Left = 392
@@ -99,6 +139,7 @@ inherited frmCadCliente: TfrmCadCliente
         MaxLength = 40
         TabOrder = 4
         Text = ''
+        OnChange = edtBairroChange
       end
       object edtCidade: TLabeledEdit
         Left = 16
@@ -111,6 +152,7 @@ inherited frmCadCliente: TfrmCadCliente
         MaxLength = 50
         TabOrder = 5
         Text = ''
+        OnChange = edtCidadeChange
       end
       object edtTelefone: TMaskEdit
         Left = 392
@@ -152,16 +194,77 @@ inherited frmCadCliente: TfrmCadCliente
     ExplicitTop = 479
     ExplicitWidth = 782
     inherited btnFechar: TBitBtn
-      Left = 678
-      ExplicitLeft = 676
+      Left = 676
+      ExplicitLeft = 674
     end
     inherited btnNavigator: TDBNavigator
       Hints.Strings = ()
     end
   end
   inherited QryListagem: TZQuery
+    SQL.Strings = (
+      'select  clienteId,'
+      '        nome,'
+      '        endereco,'
+      '        cidade,'
+      '        bairro,'
+      '        estado,'
+      '        cep,'
+      '        telefone,'
+      '        email,'
+      '        datanascimento'
+      'from clientes')
     Left = 644
     Top = 65526
+    object QryListagemclienteId: TZIntegerField
+      DisplayLabel = 'C'#243'digo'
+      FieldName = 'clienteId'
+      ReadOnly = True
+    end
+    object QryListagemnome: TZUnicodeStringField
+      DisplayLabel = 'Nome'
+      FieldName = 'nome'
+      Size = 60
+    end
+    object QryListagemcep: TZUnicodeStringField
+      DisplayLabel = 'CEP'
+      FieldName = 'cep'
+      Size = 10
+    end
+    object QryListagemendereco: TZUnicodeStringField
+      DisplayLabel = 'Endere'#231'o'
+      FieldName = 'endereco'
+      Size = 60
+    end
+    object QryListagemcidade: TZUnicodeStringField
+      DisplayLabel = 'Cidade'
+      FieldName = 'cidade'
+      Size = 50
+    end
+    object QryListagembairro: TZUnicodeStringField
+      DisplayLabel = 'Bairro'
+      FieldName = 'bairro'
+      Size = 40
+    end
+    object QryListagemestado: TZUnicodeStringField
+      DisplayLabel = 'Estado'
+      FieldName = 'estado'
+      Size = 2
+    end
+    object QryListagemtelefone: TZUnicodeStringField
+      DisplayLabel = 'Telefone'
+      FieldName = 'telefone'
+      Size = 14
+    end
+    object QryListagememail: TZUnicodeStringField
+      DisplayLabel = 'Email'
+      FieldName = 'email'
+      Size = 100
+    end
+    object QryListagemdatanascimento: TZDateTimeField
+      DisplayLabel = 'Data de Nascimento'
+      FieldName = 'datanascimento'
+    end
   end
   inherited dtsListagem: TDataSource
     Top = 65526

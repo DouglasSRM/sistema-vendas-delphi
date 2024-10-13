@@ -37,6 +37,7 @@ implementation
 { TCategoria }
 
 {$region 'Constructor and Destructor'}
+
 constructor TCategoria.Create(aConexao: TZConnection);
 begin
   ConexaoDB := aConexao;
@@ -45,14 +46,14 @@ end;
 
 destructor TCategoria.Destroy;
 begin
-
   inherited;
 end;
+
 {$endregion}
 
 
-
 {$region 'Crud'}
+
 function TCategoria.Apagar: Boolean;
   var Qry: TZQuery;
 begin
@@ -78,6 +79,7 @@ begin
     except
       Result := false;
     end;
+
   finally
     if Assigned(Qry) then
        FreeAndNil(Qry);
