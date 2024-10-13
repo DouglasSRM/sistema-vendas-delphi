@@ -60,12 +60,14 @@ implementation
 
 function TfrmCadCliente.Apagar: Boolean;
 begin
+  Result := False;
   if oCliente.Selecionar(QryListagem.FieldByName('clienteId').AsInteger) then
     Result:=oCliente.Apagar;
 end;
 
 function TfrmCadCliente.Gravar(EstadoDoCadastro: TEstadoDoCadastro): Boolean;
 begin
+  Result := False;
   if edtClienteId.Text<>EmptyStr then begin
     oCliente.codigo := StrToInt(edtClienteId.Text)
   end

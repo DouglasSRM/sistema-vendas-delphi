@@ -38,12 +38,14 @@ implementation
 {$region 'Override'}
 function TfrmCadCategoria.Apagar: Boolean;
 begin
+  Result := False;
   if oCategoria.Selecionar(QryListagem.FieldByName('categoriaId').AsInteger) then
     Result:=oCategoria.Apagar;
 end;
 
 function TfrmCadCategoria.Gravar(EstadoDoCadastro: TEstadoDoCadastro): Boolean;
 begin
+  Result := False;
   if edtCategotiaId.Text<>EmptyStr then
     oCategoria.codigo := StrToInt(edtCategotiaId.Text)
   else
@@ -55,7 +57,6 @@ begin
     Result:=oCategoria.Inserir
   else if (EstadoDoCadastro = ecAlterar) then
     Result := oCategoria.Atualizar;
-
 end;
 {$endregion}
 
