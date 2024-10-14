@@ -20,7 +20,6 @@ type
     procedure btnAlterarClick(Sender: TObject);
     procedure edtDescricaoChange(Sender: TObject);
   private
-    { Private declarations }
     oCategoria:TCategoria;
     function Apagar:Boolean; override;
     function Gravar(EstadoDoCadastro: TEstadoDoCadastro):Boolean; override;
@@ -36,6 +35,7 @@ implementation
 {$R *.dfm}
 
 {$region 'Override'}
+
 function TfrmCadCategoria.Apagar: Boolean;
 begin
   Result := False;
@@ -58,7 +58,10 @@ begin
   else if (EstadoDoCadastro = ecAlterar) then
     Result := oCategoria.Atualizar;
 end;
+
 {$endregion}
+
+{$region 'Form Procedures'}
 
 procedure TfrmCadCategoria.btnAlterarClick(Sender: TObject);
 begin
@@ -74,11 +77,6 @@ begin
   inherited;
 end;
 
-procedure TfrmCadCategoria.edtDescricaoChange(Sender: TObject);
-begin
-  CapitalizeLbEdit(edtDescricao);
-end;
-
 procedure TfrmCadCategoria.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   inherited;
@@ -92,5 +90,16 @@ begin
   oCategoria := TCategoria.Create(dtmPrincipal.ConexaoDB);
   IndiceAtual := 'descricao';
 end;
+
+{$endregion}
+
+{$region 'Capitalize'}
+
+procedure TfrmCadCategoria.edtDescricaoChange(Sender: TObject);
+begin
+  CapitalizeLbEdit(edtDescricao);
+end;
+
+{$endregion}
 
 end.

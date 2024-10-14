@@ -43,24 +43,23 @@ type
 
 implementation
 
-
-
 { TCliente }
 
 {$region 'Constructor and Destructor'}
+
 constructor TCliente.Create(aConexao: TZConnection);
 begin
   ConexaoDB := aConexao;
-
 end;
 
 destructor TCliente.Destroy;
 begin
   inherited;
 end;
+
 {$endregion}
 
-{$region 'Crud'}
+{$region 'CRUD'}
 
 function TCliente.Apagar: Boolean;
 var Qry:TZQuery;
@@ -112,16 +111,16 @@ begin
                 '      ,email          = :email ' +
                 '      ,dataNascimento = :dataNascimento ' +
                 ' WHERE clienteId = :clienteId ');
-    Qry.ParamByName('clienteId').AsInteger       :=Self.F_clienteId;
-    Qry.ParamByName('nome').AsString             :=Self.F_nome;
-    Qry.ParamByName('endereco').AsString         :=Self.F_endereco;
-    Qry.ParamByName('cidade').AsString           :=Self.F_cidade;
-    Qry.ParamByName('bairro').AsString           :=Self.F_bairro;
-    Qry.ParamByName('estado').AsString           :=Self.F_estado;
-    Qry.ParamByName('cep').AsString              :=Self.F_cep;
-    Qry.ParamByName('telefone').AsString         :=Self.F_telefone;
-    Qry.ParamByName('email').AsString            :=Self.F_email;
-    Qry.ParamByName('dataNascimento').AsDateTime :=Self.F_dataNascimento;
+    Qry.ParamByName('clienteId').AsInteger       := Self.F_clienteId;
+    Qry.ParamByName('nome').AsString             := Self.F_nome;
+    Qry.ParamByName('endereco').AsString         := Self.F_endereco;
+    Qry.ParamByName('cidade').AsString           := Self.F_cidade;
+    Qry.ParamByName('bairro').AsString           := Self.F_bairro;
+    Qry.ParamByName('estado').AsString           := Self.F_estado;
+    Qry.ParamByName('cep').AsString              := Self.F_cep;
+    Qry.ParamByName('telefone').AsString         := Self.F_telefone;
+    Qry.ParamByName('email').AsString            := Self.F_email;
+    Qry.ParamByName('dataNascimento').AsDateTime := Self.F_dataNascimento;
 
     try
       Qry.ExecSQL;
@@ -160,15 +159,15 @@ begin
                 '                      :telefone, ' +
                 '                      :email, ' +
                 '                      :dataNascimento)' );
-    Qry.ParamByName('nome').AsString             :=Self.F_nome;
-    Qry.ParamByName('endereco').AsString         :=Self.F_endereco;
-    Qry.ParamByName('cidade').AsString           :=Self.F_cidade;
-    Qry.ParamByName('bairro').AsString           :=Self.F_bairro;
-    Qry.ParamByName('estado').AsString           :=Self.F_estado;
-    Qry.ParamByName('cep').AsString              :=Self.F_cep;
-    Qry.ParamByName('telefone').AsString         :=Self.F_telefone;
-    Qry.ParamByName('email').AsString            :=Self.F_email;
-    Qry.ParamByName('dataNascimento').AsDateTime :=Self.F_dataNascimento;
+    Qry.ParamByName('nome').AsString             := Self.F_nome;
+    Qry.ParamByName('endereco').AsString         := Self.F_endereco;
+    Qry.ParamByName('cidade').AsString           := Self.F_cidade;
+    Qry.ParamByName('bairro').AsString           := Self.F_bairro;
+    Qry.ParamByName('estado').AsString           := Self.F_estado;
+    Qry.ParamByName('cep').AsString              := Self.F_cep;
+    Qry.ParamByName('telefone').AsString         := Self.F_telefone;
+    Qry.ParamByName('email').AsString            := Self.F_email;
+    Qry.ParamByName('dataNascimento').AsDateTime := Self.F_dataNascimento;
 
     try
       Qry.ExecSQL;

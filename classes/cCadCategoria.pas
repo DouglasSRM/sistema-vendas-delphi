@@ -41,7 +41,6 @@ implementation
 constructor TCategoria.Create(aConexao: TZConnection);
 begin
   ConexaoDB := aConexao;
-
 end;
 
 destructor TCategoria.Destroy;
@@ -51,8 +50,7 @@ end;
 
 {$endregion}
 
-
-{$region 'Crud'}
+{$region 'CRUD'}
 
 function TCategoria.Apagar: Boolean;
   var Qry: TZQuery;
@@ -161,7 +159,7 @@ end;
 
 {$endregion}
 
-{$region 'Getters'}
+{$region 'Getters&Setters'}
 function TCategoria.getCodigo: Integer;
 begin
   Result := Self.F_categoriaId;
@@ -171,9 +169,7 @@ function TCategoria.getDescricao: String;
 begin
   Result := Self.F_descricao;
 end;
-{$endregion}
 
-{$region 'Setters'}
 procedure TCategoria.setCodigo(const Value: Integer);
 begin
   Self.F_categoriaId := Value;

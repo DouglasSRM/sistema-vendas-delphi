@@ -274,7 +274,7 @@ object frmTelaHeranca: TfrmTelaHeranca
       OnClick = btnApagarClick
     end
     object btnFechar: TBitBtn
-      Left = 682
+      Left = 680
       Top = 13
       Width = 75
       Height = 25

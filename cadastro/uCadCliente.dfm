@@ -20,7 +20,7 @@ inherited frmCadCliente: TfrmCadCliente
         Columns = <
           item
             Expanded = False
-            FieldName = 'clienteId'
+            FieldName = 'clienteid'
             Width = 51
             Visible = True
           end
@@ -50,7 +50,30 @@ inherited frmCadCliente: TfrmCadCliente
           item
             Expanded = False
             FieldName = 'cidade'
-            Width = 158
+            Width = 174
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'bairro'
+            Width = 170
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'telefone'
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'email'
+            Width = 239
+            Visible = True
+          end
+          item
+            Expanded = False
+            FieldName = 'datanascimento'
+            Width = 124
             Visible = True
           end>
       end
@@ -64,7 +87,7 @@ inherited frmCadCliente: TfrmCadCliente
         Caption = 'CEP'
       end
       object lbTelefone: TLabel
-        Left = 392
+        Left = 360
         Top = 149
         Width = 44
         Height = 15
@@ -118,7 +141,7 @@ inherited frmCadCliente: TfrmCadCliente
       object edtEndereco: TLabeledEdit
         Left = 16
         Top = 120
-        Width = 361
+        Width = 329
         Height = 23
         EditLabel.Width = 49
         EditLabel.Height = 15
@@ -129,9 +152,9 @@ inherited frmCadCliente: TfrmCadCliente
         OnChange = edtEnderecoChange
       end
       object edtBairro: TLabeledEdit
-        Left = 392
+        Left = 360
         Top = 120
-        Width = 357
+        Width = 389
         Height = 23
         EditLabel.Width = 31
         EditLabel.Height = 15
@@ -144,7 +167,7 @@ inherited frmCadCliente: TfrmCadCliente
       object edtCidade: TLabeledEdit
         Left = 16
         Top = 168
-        Width = 361
+        Width = 329
         Height = 23
         EditLabel.Width = 37
         EditLabel.Height = 15
@@ -155,9 +178,9 @@ inherited frmCadCliente: TfrmCadCliente
         OnChange = edtCidadeChange
       end
       object edtTelefone: TMaskEdit
-        Left = 392
+        Left = 360
         Top = 168
-        Width = 81
+        Width = 113
         Height = 23
         EditMask = '(99) 99999-9999;1;_'
         MaxLength = 15
@@ -219,42 +242,52 @@ inherited frmCadCliente: TfrmCadCliente
     Left = 644
     Top = 65526
     object QryListagemclienteid: TZIntegerField
+      DisplayLabel = 'C'#243'digo'
       FieldName = 'clienteid'
     end
     object QryListagemnome: TZUnicodeStringField
+      DisplayLabel = 'Nome'
       FieldName = 'nome'
       Required = True
       Size = 60
     end
     object QryListagemendereco: TZUnicodeStringField
+      DisplayLabel = 'Endere'#231'o'
       FieldName = 'endereco'
       Size = 60
     end
     object QryListagemcidade: TZUnicodeStringField
+      DisplayLabel = 'Cidade'
       FieldName = 'cidade'
       Size = 50
     end
     object QryListagembairro: TZUnicodeStringField
+      DisplayLabel = 'Bairro'
       FieldName = 'bairro'
       Size = 40
     end
     object QryListagemestado: TZUnicodeStringField
+      DisplayLabel = 'Estado'
       FieldName = 'estado'
       Size = 2
     end
     object QryListagemcep: TZUnicodeStringField
+      DisplayLabel = 'CEP'
       FieldName = 'cep'
       Size = 10
     end
     object QryListagemtelefone: TZUnicodeStringField
+      DisplayLabel = 'Telefone'
       FieldName = 'telefone'
       Size = 15
     end
     object QryListagememail: TZUnicodeStringField
+      DisplayLabel = 'Email'
       FieldName = 'email'
       Size = 100
     end
     object QryListagemdatanascimento: TZDateTimeField
+      DisplayLabel = 'Data de Nascimento'
       FieldName = 'datanascimento'
     end
   end
