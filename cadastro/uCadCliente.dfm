@@ -4,8 +4,8 @@ inherited frmCadCliente: TfrmCadCliente
   TextHeight = 15
   inherited pgcPrincipal: TPageControl
     ActivePage = tabManutencao
-    ExplicitLeft = -8
-    ExplicitTop = 7
+    ExplicitWidth = 782
+    ExplicitHeight = 479
     inherited tabListagem: TTabSheet
       inherited pnlListagemTopo: TPanel
         StyleElements = [seFont, seClient, seBorder]
@@ -194,8 +194,8 @@ inherited frmCadCliente: TfrmCadCliente
     ExplicitTop = 479
     ExplicitWidth = 782
     inherited btnFechar: TBitBtn
-      Left = 676
-      ExplicitLeft = 674
+      Left = 674
+      ExplicitLeft = 672
     end
     inherited btnNavigator: TDBNavigator
       Hints.Strings = ()
@@ -203,66 +203,58 @@ inherited frmCadCliente: TfrmCadCliente
   end
   inherited QryListagem: TZQuery
     SQL.Strings = (
-      'select  clienteId,'
-      '        nome,'
-      '        endereco,'
-      '        cidade,'
-      '        bairro,'
-      '        estado,'
-      '        cep,'
-      '        telefone,'
-      '        email,'
-      '        datanascimento'
-      'from clientes')
+      'SELECT'
+      '    clienteId,'
+      '    nome,'
+      '    endereco,'
+      '    cidade,'
+      '    bairro,'
+      '    estado,'
+      '    cep,'
+      '    telefone,'
+      '    email,'
+      '    dataNascimento'
+      'FROM'
+      '    clientes;')
     Left = 644
     Top = 65526
-    object QryListagemclienteId: TZIntegerField
-      DisplayLabel = 'C'#243'digo'
-      FieldName = 'clienteId'
-      ReadOnly = True
+    object QryListagemclienteid: TZIntegerField
+      FieldName = 'clienteid'
     end
     object QryListagemnome: TZUnicodeStringField
-      DisplayLabel = 'Nome'
       FieldName = 'nome'
+      Required = True
       Size = 60
     end
-    object QryListagemcep: TZUnicodeStringField
-      DisplayLabel = 'CEP'
-      FieldName = 'cep'
-      Size = 10
-    end
     object QryListagemendereco: TZUnicodeStringField
-      DisplayLabel = 'Endere'#231'o'
       FieldName = 'endereco'
       Size = 60
     end
     object QryListagemcidade: TZUnicodeStringField
-      DisplayLabel = 'Cidade'
       FieldName = 'cidade'
       Size = 50
     end
     object QryListagembairro: TZUnicodeStringField
-      DisplayLabel = 'Bairro'
       FieldName = 'bairro'
       Size = 40
     end
     object QryListagemestado: TZUnicodeStringField
-      DisplayLabel = 'Estado'
       FieldName = 'estado'
       Size = 2
     end
+    object QryListagemcep: TZUnicodeStringField
+      FieldName = 'cep'
+      Size = 10
+    end
     object QryListagemtelefone: TZUnicodeStringField
-      DisplayLabel = 'Telefone'
       FieldName = 'telefone'
-      Size = 14
+      Size = 15
     end
     object QryListagememail: TZUnicodeStringField
-      DisplayLabel = 'Email'
       FieldName = 'email'
       Size = 100
     end
     object QryListagemdatanascimento: TZDateTimeField
-      DisplayLabel = 'Data de Nascimento'
       FieldName = 'datanascimento'
     end
   end

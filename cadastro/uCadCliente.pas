@@ -23,7 +23,8 @@ type
     edtEmail: TLabeledEdit;
     edtDataNascimento: TDateEdit;
     lbDataNascimento: TLabel;
-    QryListagemclienteId: TZIntegerField;
+    QryListagemclienteid: TZIntegerField;
+    QryListagemnome: TZUnicodeStringField;
     QryListagemendereco: TZUnicodeStringField;
     QryListagemcidade: TZUnicodeStringField;
     QryListagembairro: TZUnicodeStringField;
@@ -32,7 +33,6 @@ type
     QryListagemtelefone: TZUnicodeStringField;
     QryListagememail: TZUnicodeStringField;
     QryListagemdatanascimento: TZDateTimeField;
-    QryListagemnome: TZUnicodeStringField;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnNovoClick(Sender: TObject);

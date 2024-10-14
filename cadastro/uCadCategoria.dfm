@@ -3,11 +3,11 @@ inherited frmCadCategoria: TfrmCadCategoria
   StyleElements = [seFont, seClient, seBorder]
   TextHeight = 15
   inherited pgcPrincipal: TPageControl
-    ActivePage = tabManutencao
+    ExplicitWidth = 782
+    ExplicitHeight = 479
     inherited tabListagem: TTabSheet
       inherited pnlListagemTopo: TPanel
         StyleElements = [seFont, seClient, seBorder]
-        ExplicitWidth = 776
         inherited lblIndice: TLabel
           StyleElements = [seFont, seClient, seBorder]
         end
@@ -67,8 +67,8 @@ inherited frmCadCategoria: TfrmCadCategoria
     ExplicitTop = 479
     ExplicitWidth = 782
     inherited btnFechar: TBitBtn
-      Left = 676
-      ExplicitLeft = 674
+      Left = 674
+      ExplicitLeft = 672
     end
     inherited btnNavigator: TDBNavigator
       Hints.Strings = ()
@@ -77,14 +77,12 @@ inherited frmCadCategoria: TfrmCadCategoria
   inherited QryListagem: TZQuery
     SQL.Strings = (
       'select categoriaId, descricao from categorias')
-    object QryListagemcategoriaId: TZIntegerField
-      DisplayLabel = 'C'#243'digo'
-      FieldName = 'categoriaId'
-      ReadOnly = True
+    object QryListagemcategoriaid: TZIntegerField
+      FieldName = 'categoriaid'
     end
     object QryListagemdescricao: TZUnicodeStringField
-      DisplayLabel = 'Descri'#231#227'o'
       FieldName = 'descricao'
+      Required = True
       Size = 30
     end
   end

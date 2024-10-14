@@ -11,10 +11,10 @@ uses
 
 type
   TfrmCadCategoria = class(TfrmTelaHeranca)
-    QryListagemcategoriaId: TZIntegerField;
-    QryListagemdescricao: TZUnicodeStringField;
     edtCategotiaId: TLabeledEdit;
     edtDescricao: TLabeledEdit;
+    QryListagemcategoriaid: TZIntegerField;
+    QryListagemdescricao: TZUnicodeStringField;
     procedure FormCreate(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure btnAlterarClick(Sender: TObject);

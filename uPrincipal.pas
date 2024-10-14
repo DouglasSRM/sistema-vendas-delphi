@@ -67,14 +67,24 @@ end;
 procedure TfrmPrincipal.FormCreate(Sender: TObject);
 begin
 dtmPrincipal := TdtmPrincipal.Create(Self);
-  with dtmPrincipal.ConexaoDB do begin
-    SQLHourGlass := False;
-    Protocol := 'ado';
-    Port := 1433;
-    User := 'sa';
-    Password := 'mudar@123';
-    Database := 'Provider=SQLOLEDB.1;Persist Security Info=False;User ID=sa;Initial Catalog=vendas;Data Source=DOUGLASNT\SERVERCURSO';
-    Connected := True;
+  with dtmPrincipal.ConexaoDB do
+  begin
+    try
+      Connected := False;
+
+      SQLHourGlass := True;
+      HostName := 'localhost';
+      Database := 'vendas';
+      User := 'postgres';
+      Password := 'admin';
+      Port := 5433;
+      Protocol := 'postgresql';
+
+      Connected := True;
+    except
+      on E: Exception do
+        ShowMessage('Erro ao conectar: ' + E.Message);
+    end;
   end;
 
   TeclaEnter := TMREnter.Create(Self);

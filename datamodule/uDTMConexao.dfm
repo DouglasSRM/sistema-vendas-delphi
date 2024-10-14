@@ -7,17 +7,14 @@ object dtmPrincipal: TdtmPrincipal
     Catalog = ''
     Properties.Strings = (
       'RawStringEncoding=DB_CP')
-    Connected = True
     SQLHourGlass = True
     DisableSavepoints = False
-    HostName = ''
-    Port = 0
-    Database = 
-      'Provider=SQLOLEDB.1;Persist Security Info=False;User ID=sa;Initi' +
-      'al Catalog=vendas;Data Source=DOUGLASNT\SERVERCURSO'
-    User = 'sa'
-    Password = 'mudar@123'
-    Protocol = 'ado'
+    HostName = 'localhost'
+    Port = 5433
+    Database = 'vendas'
+    User = 'postgres'
+    Password = 'admin'
+    Protocol = 'postgresql'
     Left = 264
     Top = 120
   end
