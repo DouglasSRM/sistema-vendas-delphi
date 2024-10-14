@@ -104,7 +104,10 @@ begin
     Qry.ParamByName('descricao').AsString    := Self.F_descricao;
     Qry.ParamByName('valor').AsFloat         := Self.F_valor;
     Qry.ParamByName('quantidade').AsFloat    := Self.F_quantidade;
-    Qry.ParamByName('categoriaId').AsInteger := Self.F_categoriaId;
+    if Self.F_categoriaId = 0 then
+      Qry.ParamByName('categoriaId').Clear
+    else
+      Qry.ParamByName('categoriaId').AsInteger := Self.F_categoriaId;
 
     try
       Qry.ExecSQL;
@@ -139,7 +142,10 @@ begin
     Qry.ParamByName('descricao').AsString    := Self.F_descricao;
     Qry.ParamByName('valor').AsFloat         := Self.F_valor;
     Qry.ParamByName('quantidade').AsFloat    := Self.F_quantidade;
-    Qry.ParamByName('categoriaId').AsInteger := Self.F_categoriaId;
+    if Self.F_categoriaId = 0 then
+      Qry.ParamByName('categoriaId').Clear
+    else
+      Qry.ParamByName('categoriaId').AsInteger := Self.F_categoriaId;
 
     try
       Qry.ExecSQL;

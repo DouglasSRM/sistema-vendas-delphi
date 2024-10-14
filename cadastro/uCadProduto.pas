@@ -72,9 +72,12 @@ begin
 
   oProduto.nome        := edtNome.Text;
   oProduto.descricao   := edtDescricao.Text;
-  oProduto.categoriaId := lkpCategoria.KeyValue;
   oProduto.valor       := edtValor.Value;
   oProduto.quantidade  := edtQuantidade.Value;
+  if VarIsNull(lkpCategoria.KeyValue) then
+    oProduto.categoriaId := 0
+  else
+    oProduto.categoriaId := lkpCategoria.KeyValue;
 
   if (EstadoDoCadastro = ecInserir) then
     Result := oProduto.Inserir

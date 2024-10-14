@@ -205,7 +205,6 @@ inherited frmCadProduto: TfrmCadProduto
   end
   object QryCategoria: TZQuery
     Connection = dtmPrincipal.ConexaoDB
-    Active = True
     SQL.Strings = (
       'SELECT categoriaid, descricao from categorias')
     Params = <>

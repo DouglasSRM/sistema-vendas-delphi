@@ -155,6 +155,10 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="classes\cCadProduto.pas"/>
+        <DCCReference Include="datamodule\uFrmAtualizaDB.pas">
+            <Form>frmAtualizaDB</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

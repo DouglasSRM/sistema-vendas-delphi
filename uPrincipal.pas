@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, uDTMConexao, Enter;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, uDTMConexao, Enter, uFrmAtualizaDB;
 
 type
   TfrmPrincipal = class(TForm)
@@ -32,6 +32,7 @@ type
     procedure Produto1Click(Sender: TObject);
   private
     TeclaEnter: TMREnter;
+    procedure AtualizacaoBancoDados(aForm: TfrmAtualizaDB);
   public
     { Public declarations }
   end;
@@ -75,7 +76,11 @@ end;
 
 procedure TfrmPrincipal.FormCreate(Sender: TObject);
 begin
-dtmPrincipal := TdtmPrincipal.Create(Self);
+  frmAtualizaDB := TfrmAtualizaDB.Create(self);
+  frmAtualizaDB.Show;
+  frmAtualizaDB.Refresh;
+
+  dtmPrincipal := TdtmPrincipal.Create(Self);
   with dtmPrincipal.ConexaoDB do
   begin
     try
@@ -95,6 +100,9 @@ dtmPrincipal := TdtmPrincipal.Create(Self);
         ShowMessage('Erro ao conectar: ' + E.Message);
     end;
   end;
+  AtualizacaoBancoDados(frmAtualizaDB);
+
+  frmAtualizaDB.Free;
 
   TeclaEnter := TMREnter.Create(Self);
   TeclaEnter.FocusEnabled := true;
@@ -106,6 +114,37 @@ procedure TfrmPrincipal.menuFecharClick(Sender: TObject);
 begin
   //Close;
   Application.Terminate;
+end;
+
+procedure TfrmPrincipal.AtualizacaoBancoDados(aForm: TfrmAtualizaDB);
+begin
+  aForm.chkConexao.Checked := true;
+  aForm.Refresh;
+
+  DtmPrincipal.QryScriptCategorias.ExecSQL;
+  aForm.chkCategorias.Checked := true;
+  aForm.Refresh;
+  Sleep(200);
+
+  DtmPrincipal.QryScriptClientes.ExecSQL;
+  aForm.chkClientes.Checked := true;
+  aForm.Refresh;
+  Sleep(200);
+
+  DtmPrincipal.QryScriptProdutos.ExecSQL;
+  aForm.chkProdutos.Checked := true;
+  aForm.Refresh;
+  Sleep(200);
+
+  DtmPrincipal.QryScriptVendas.ExecSQL;
+  aForm.chkVendas.Checked := true;
+  aForm.Refresh;
+  Sleep(200);
+
+  DtmPrincipal.QryScriptItensVendas.ExecSQL;
+  aForm.chkItensVendas.Checked := true;
+  aForm.Refresh;
+  Sleep(200);
 end;
 
 
