@@ -159,6 +159,15 @@
             <Form>frmAtualizaDB</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="datamodule\uDTMVenda.pas">
+            <Form>dtmVenda</Form>
+            <FormType>dfm</FormType>
+            <DesignClass>TDataModule</DesignClass>
+        </DCCReference>
+        <DCCReference Include="processo\uProVenda.pas">
+            <Form>frmProVenda</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
