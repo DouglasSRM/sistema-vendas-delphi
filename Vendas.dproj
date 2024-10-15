@@ -168,6 +168,7 @@
             <Form>frmProVenda</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="classes\cProVenda.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

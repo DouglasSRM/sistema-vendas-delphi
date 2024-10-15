@@ -3,8 +3,6 @@ inherited frmProVenda: TfrmProVenda
   ClientHeight = 626
   ClientWidth = 946
   StyleElements = [seFont, seClient, seBorder]
-  ExplicitLeft = 3
-  ExplicitTop = 3
   ExplicitWidth = 962
   ExplicitHeight = 665
   TextHeight = 15
@@ -12,13 +10,15 @@ inherited frmProVenda: TfrmProVenda
     Width = 946
     Height = 572
     ActivePage = tabManutencao
-    ExplicitTop = -1
+    ExplicitWidth = 944
+    ExplicitHeight = 564
     inherited tabListagem: TTabSheet
       ExplicitWidth = 938
       ExplicitHeight = 542
       inherited pnlListagemTopo: TPanel
         Width = 938
         StyleElements = [seFont, seClient, seBorder]
+        ExplicitWidth = 938
         inherited lblIndice: TLabel
           StyleElements = [seFont, seClient, seBorder]
         end
@@ -119,6 +119,8 @@ inherited frmProVenda: TfrmProVenda
         Height = 446
         Align = alBottom
         TabOrder = 3
+        ExplicitTop = 88
+        ExplicitWidth = 936
         object Panel2: TPanel
           Left = 1
           Top = 67
@@ -126,10 +128,7 @@ inherited frmProVenda: TfrmProVenda
           Height = 336
           Align = alClient
           TabOrder = 0
-          ExplicitLeft = 384
-          ExplicitTop = 96
-          ExplicitWidth = 185
-          ExplicitHeight = 41
+          ExplicitWidth = 934
           object grdItens: TDBGrid
             Left = 1
             Top = 1
@@ -184,16 +183,15 @@ inherited frmProVenda: TfrmProVenda
           Height = 42
           Align = alBottom
           TabOrder = 1
-          ExplicitTop = 295
-          ExplicitWidth = 774
+          ExplicitWidth = 934
           DesignSize = (
             936
             42)
           object lbValorVenda: TLabel
-            Left = 709
+            Left = 707
             Top = 13
-            Width = 85
-            Height = 19
+            Width = 81
+            Height = 15
             Anchors = [akTop, akRight]
             Caption = 'Valor da Venda'
             Font.Charset = DEFAULT_CHARSET
@@ -202,9 +200,10 @@ inherited frmProVenda: TfrmProVenda
             Font.Name = 'Segoe UI'
             Font.Style = [fsBold]
             ParentFont = False
+            ExplicitLeft = 709
           end
-          object edtValor: TCurrencyEdit
-            Left = 800
+          object edtValorTotal: TCurrencyEdit
+            Left = 798
             Top = 10
             Width = 125
             Height = 23
@@ -219,6 +218,7 @@ inherited frmProVenda: TfrmProVenda
             ParentFont = False
             ReadOnly = True
             TabOrder = 0
+            ExplicitLeft = 796
           end
         end
         object Panel4: TPanel
@@ -228,9 +228,7 @@ inherited frmProVenda: TfrmProVenda
           Height = 66
           Align = alTop
           TabOrder = 2
-          ExplicitLeft = 0
-          ExplicitTop = -4
-          ExplicitWidth = 774
+          ExplicitWidth = 934
           object lbProduto: TLabel
             Left = 7
             Top = 10
@@ -375,8 +373,11 @@ inherited frmProVenda: TfrmProVenda
     Top = 572
     Width = 946
     StyleElements = [seFont, seClient, seBorder]
+    ExplicitTop = 564
+    ExplicitWidth = 944
     inherited btnFechar: TBitBtn
-      Left = 840
+      Left = 838
+      ExplicitLeft = 836
     end
     inherited btnNavigator: TDBNavigator
       Hints.Strings = ()
