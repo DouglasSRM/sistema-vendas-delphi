@@ -24,8 +24,8 @@ type
     function Apagar:Boolean;
     function Selecionar(id:Integer):Boolean;
   published
-    property codigo: Integer read getCodigo write setCodigo;
-    property descricao: String read getDescricao write setDescricao;
+    property codigo: Integer     read getCodigo      write setCodigo;
+    property descricao: String   read getDescricao   write setDescricao;
   end;
 
 implementation
