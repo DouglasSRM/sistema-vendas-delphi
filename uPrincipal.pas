@@ -68,7 +68,6 @@ begin
   frmCadProduto.Release;
 end;
 
-
 procedure TfrmPrincipal.Venda1Click(Sender: TObject);
 begin
   frmProVenda := TfrmProVenda.Create(self);
@@ -115,7 +114,6 @@ begin
   TeclaEnter := TMREnter.Create(Self);
   TeclaEnter.FocusEnabled := true;
   TeclaEnter.FocusColor := clInfoBk;
-
 end;
 
 procedure TfrmPrincipal.menuFecharClick(Sender: TObject);
@@ -154,6 +152,5 @@ begin
   aForm.Refresh;
   Sleep(200);
 end;
-
 
 end.

@@ -96,6 +96,11 @@ end;
 
 procedure TfrmCadCliente.btnAlterarClick(Sender: TObject);
 begin
+  if QryListagem.FieldByName('clienteId').AsInteger = 0 then begin
+    MessageDlg('Nenhum cliente cadastrado', mtInformation, [mbOK], 0);
+    abort;
+  end;
+
   if oCliente.Selecionar(QryListagem.FieldByName('clienteId').AsInteger) then begin
     edtClienteId.Text      := IntToStr(oCliente.codigo);
     edtNome.Text           := oCliente.nome;

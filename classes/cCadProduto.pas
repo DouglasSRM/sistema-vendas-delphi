@@ -16,7 +16,6 @@ type
     F_valor: Double;
     F_quantidade: Double;
     F_categoriaId: Integer;
-
   public
     constructor Create(aConexao: TZConnection);
     destructor Destroy; override;

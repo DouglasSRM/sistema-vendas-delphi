@@ -143,6 +143,7 @@ inherited frmProVenda: TfrmProVenda
             TitleFont.Height = -12
             TitleFont.Name = 'Segoe UI'
             TitleFont.Style = []
+            OnDblClick = grdItensDblClick
             OnKeyDown = grdItensKeyDown
             Columns = <
               item
@@ -153,7 +154,7 @@ inherited frmProVenda: TfrmProVenda
               item
                 Expanded = False
                 FieldName = 'NomeProduto'
-                Width = 433
+                Width = 401
                 Visible = True
               end
               item
@@ -170,8 +171,8 @@ inherited frmProVenda: TfrmProVenda
               end
               item
                 Expanded = False
-                FieldName = 'valorTotalProduto'
-                Width = 152
+                FieldName = 'totalProduto'
+                Width = 103
                 Visible = True
               end>
           end
@@ -188,7 +189,7 @@ inherited frmProVenda: TfrmProVenda
             936
             42)
           object lbValorVenda: TLabel
-            Left = 707
+            Left = 703
             Top = 13
             Width = 81
             Height = 15
@@ -203,7 +204,7 @@ inherited frmProVenda: TfrmProVenda
             ExplicitLeft = 709
           end
           object edtValorTotal: TCurrencyEdit
-            Left = 798
+            Left = 794
             Top = 10
             Width = 125
             Height = 23
@@ -218,7 +219,7 @@ inherited frmProVenda: TfrmProVenda
             ParentFont = False
             ReadOnly = True
             TabOrder = 0
-            ExplicitLeft = 796
+            ExplicitLeft = 792
           end
         end
         object Panel4: TPanel
@@ -230,35 +231,35 @@ inherited frmProVenda: TfrmProVenda
           TabOrder = 2
           ExplicitWidth = 934
           object lbProduto: TLabel
-            Left = 7
+            Left = 15
             Top = 10
             Width = 43
             Height = 15
             Caption = 'Produto'
           end
           object lvValorUnitario: TLabel
-            Left = 375
+            Left = 382
             Top = 10
             Width = 71
             Height = 15
             Caption = 'Valor Unit'#225'rio'
           end
           object lbQuantidade: TLabel
-            Left = 487
+            Left = 492
             Top = 10
             Width = 62
             Height = 15
             Caption = 'Quantidade'
           end
           object lbValorTotal: TLabel
-            Left = 599
+            Left = 602
             Top = 10
             Width = 88
             Height = 15
             Caption = 'Total do Produto'
           end
           object lkpProduto: TDBLookupComboBox
-            Left = 7
+            Left = 15
             Top = 28
             Width = 354
             Height = 23
@@ -266,25 +267,28 @@ inherited frmProVenda: TfrmProVenda
             ListField = 'nome'
             ListSource = dtmVenda.dtsProdutos
             TabOrder = 0
+            OnExit = lkpProdutoExit
           end
           object edtValorUnitario: TCurrencyEdit
-            Left = 375
+            Left = 382
             Top = 28
             Width = 98
             Height = 23
             DisplayFormat = ',0.00;- ,0.00'
             TabOrder = 1
+            OnChange = edtValorUnitarioChange
           end
           object edtQuantidade: TCurrencyEdit
-            Left = 487
+            Left = 492
             Top = 28
             Width = 98
             Height = 23
             DisplayFormat = ',0.00;- ,0.00'
             TabOrder = 2
+            OnChange = edtQuantidadeChange
           end
           object edtTotalProduto: TCurrencyEdit
-            Left = 599
+            Left = 602
             Top = 28
             Width = 98
             Height = 23
@@ -294,7 +298,7 @@ inherited frmProVenda: TfrmProVenda
             ReadOnly = True
             TabOrder = 3
           end
-          object BitBtn1: TBitBtn
+          object btnAdicionarItem: TBitBtn
             Left = 720
             Top = 28
             Width = 92
@@ -328,8 +332,9 @@ inherited frmProVenda: TfrmProVenda
               FFFF00FFFF00FFFF00FFFF00FFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAFAF
               AFAFAFAFAFAFAFAFAFAFAFFF00FFFF00FFFF00FFFF00FFFF00FF}
             TabOrder = 4
+            OnClick = btnAdicionarItemClick
           end
-          object BitBtn2: TBitBtn
+          object btnRemoverItem: TBitBtn
             Left = 828
             Top = 28
             Width = 88
@@ -364,6 +369,7 @@ inherited frmProVenda: TfrmProVenda
               00FFFF00FFFF00FFFF00FFFF00FF3636933E3E9AFF00FFFF00FF}
             TabOrder = 5
             TabStop = False
+            OnClick = btnRemoverItemClick
           end
         end
       end
@@ -376,8 +382,8 @@ inherited frmProVenda: TfrmProVenda
     ExplicitTop = 564
     ExplicitWidth = 944
     inherited btnFechar: TBitBtn
-      Left = 838
-      ExplicitLeft = 836
+      Left = 834
+      ExplicitLeft = 832
     end
     inherited btnNavigator: TDBNavigator
       Hints.Strings = ()

@@ -65,6 +65,11 @@ end;
 
 procedure TfrmCadCategoria.btnAlterarClick(Sender: TObject);
 begin
+  if QryListagem.FieldByName('categoriaId').AsInteger = 0 then begin
+    MessageDlg('Nenhuma categoria cadastrada', mtInformation, [mbOK], 0);
+    abort;
+  end;
+
   if oCategoria.Selecionar(QryListagem.FieldByName('categoriaId').AsInteger) then begin
     edtCategotiaId.Text := IntToStr(oCategoria.codigo);
     edtDescricao.Text := oCategoria.descricao;

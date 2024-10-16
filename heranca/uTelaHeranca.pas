@@ -41,8 +41,7 @@ type
     procedure grdListagemTitleClick(Column: TColumn);
     procedure mskPesquisarChange(Sender: TObject);
     procedure grdListagemDblClick(Sender: TObject);
-    procedure grdListagemKeyDown(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
+    procedure grdListagemKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
   private
     procedure ControlarBotoes(btnNovo, btnAlterar, btnCancelar,
               btnGravar, btnApagar:TBitBtn; btnNavigator: TDBNavigator;
@@ -69,12 +68,14 @@ var
 implementation
 
 {$R *.dfm}
+
 {$region 'OBSERVAÇÕES'}
 //TAG: 1 - Chave Primária - PK
 //TAG: 2 - Campos Obrigatórios - Not Null
 {$endregion}
 
 {$region 'Funções e Procedures'}
+
 procedure TfrmTelaHeranca.FormCreate(Sender: TObject);
 begin
   QryListagem.Connection := dtmPrincipal.ConexaoDB;
@@ -98,12 +99,9 @@ begin
   ControlarIndiceTab(pgcPrincipal, 0);
   DesabilitarEditPK;
   ControlarBotoes(btnNovo, btnAlterar, btnCancelar, btnGravar, btnApagar, btnNavigator, pgcPrincipal, true);
-
 end;
 
-
 procedure TfrmTelaHeranca.ControlarIndiceTab(pgcPrincipal: TPageControl; Indice: Integer);
-
 begin
   if (pgcPrincipal.Pages[Indice].TabVisible) then
     pgcPrincipal.TabIndex := Indice;
@@ -130,8 +128,7 @@ begin
   btnAlterar.Click;
 end;
 
-procedure TfrmTelaHeranca.grdListagemKeyDown(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
+procedure TfrmTelaHeranca.grdListagemKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
 begin
   BloqueiaCTRL_DEL_DBGrid(Key, Shift);
 end;
@@ -144,7 +141,7 @@ begin
 end;
 
 procedure TfrmTelaHeranca.mskPesquisarChange(Sender: TObject);
-  var Search:String;
+var Search:String;
 begin
   Search := Capitalize(TMaskEdit(Sender).Text);
   QryListagem.Locate(IndiceAtual, Search, [loPartialKey]);
@@ -210,6 +207,7 @@ end;
 {$endregion}
 
 {$region 'Métodos Virtuais'}
+
 function TfrmTelaHeranca.Apagar: Boolean;
 begin
   ShowMessage('Deletado');
@@ -314,9 +312,11 @@ procedure TfrmTelaHeranca.btnFecharClick(Sender: TObject);
 begin
   Close;
 end;
+
 {$endregion}
 
 {$region 'Funções QoL'}
+
 function TfrmTelaHeranca.Capitalize(const Str: string):String;
 var
   i: Integer;
@@ -364,7 +364,6 @@ begin
   finally
     EditControl.OnChange := oldOnChange;
   end;
-
 end;
 
 procedure TfrmTelaHeranca.BloqueiaCTRL_DEL_DBGrid(var Key: Word; Shift: TShiftState);

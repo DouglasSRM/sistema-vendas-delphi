@@ -20,7 +20,6 @@ type
     F_telefone: String;
     F_email: String;
     F_dataNascimento: TDateTime;
-
   public
     constructor Create(aConexao: TZConnection);
     destructor Destroy; override;

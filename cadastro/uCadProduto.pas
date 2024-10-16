@@ -91,8 +91,12 @@ end;
 
 procedure TfrmCadProduto.btnAlterarClick(Sender: TObject);
 begin
+  if QryListagem.FieldByName('produtoId').AsInteger = 0 then begin
+    MessageDlg('Nenhum produto cadastrado', mtInformation, [mbOK], 0);
+    abort;
+  end;
 
-if oProduto.Selecionar(QryListagem.FieldByName('produtoId').AsInteger) then begin
+  if oProduto.Selecionar(QryListagem.FieldByName('produtoId').AsInteger) then begin
     edtProdutoId.Text      := IntToStr(oProduto.codigo);
     edtNome.Text           := oProduto.nome;
     edtDescricao.Text      := oProduto.descricao;
@@ -106,7 +110,6 @@ if oProduto.Selecionar(QryListagem.FieldByName('produtoId').AsInteger) then begi
   end;
 
   inherited;
-
 end;
 
 procedure TfrmCadProduto.btnNovoClick(Sender: TObject);
@@ -127,7 +130,6 @@ procedure TfrmCadProduto.FormCreate(Sender: TObject);
 begin
   inherited;
   oProduto := TProduto.Create(dtmPrincipal.ConexaoDB);
-
   IndiceAtual := 'nome';
 end;
 

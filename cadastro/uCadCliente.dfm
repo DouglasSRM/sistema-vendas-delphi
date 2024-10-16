@@ -217,8 +217,8 @@ inherited frmCadCliente: TfrmCadCliente
     ExplicitTop = 479
     ExplicitWidth = 782
     inherited btnFechar: TBitBtn
-      Left = 674
-      ExplicitLeft = 672
+      Left = 672
+      ExplicitLeft = 670
     end
     inherited btnNavigator: TDBNavigator
       Hints.Strings = ()

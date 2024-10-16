@@ -7,29 +7,25 @@ uses
   ZAbstractConnection, ZConnection, ZAbstractRODataset, ZAbstractDataset, ZDataset;
 
 type
-  TCategoria = class //Declaração do tipo da Classe
+  TCategoria = class
   private
     ConexaoDB: TZConnection;
-    F_categoriaId : Integer; //Int
-    F_descricao : String; //Varchar
+    F_categoriaId : Integer;
+    F_descricao : String;
     function getCodigo: Integer;
     function getDescricao: String;
     procedure setCodigo(const Value: Integer);
     procedure setDescricao(const Value: String);
   public
-    constructor Create(aConexao: TZConnection); //Construtor da Classe
+    constructor Create(aConexao: TZConnection);
     destructor Destroy; override;
     function Inserir:Boolean;
     function Atualizar:Boolean;
     function Apagar:Boolean;
     function Selecionar(id:Integer):Boolean;
-    //Variáveis públicas que podem ser trabalhadas fora da classe
   published
     property codigo: Integer read getCodigo write setCodigo;
     property descricao: String read getDescricao write setDescricao;
-    //Variaveis públicas utilizadas para propriedades da classe
-    //para fornecer informações em runtime
-
   end;
 
 implementation
@@ -154,12 +150,12 @@ begin
     if Assigned(Qry) then
       FreeAndNil(Qry);
   end;
-
 end;
 
 {$endregion}
 
 {$region 'Getters&Setters'}
+
 function TCategoria.getCodigo: Integer;
 begin
   Result := Self.F_categoriaId;
@@ -179,6 +175,7 @@ procedure TCategoria.setDescricao(const Value: String);
 begin
   Self.F_descricao := Value;
 end;
+
 {$endregion}
 
 end.
