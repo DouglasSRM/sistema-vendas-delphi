@@ -6,7 +6,7 @@ Em desenvolvimento seguindo o curso [Desenvolver Sistema com Delphi e SQL-Server
 
 - [x] Fase 0 - Introdução, Download de Ferramentas e Básico de SQL Server
 - [x] Fase 1 - Tela Herança
-- [ ] Fase 2 - Venda e Controle de Estoque
+- [x] Fase 2 - Venda e Controle de Estoque
 - [ ] Fase 3 - Relatório com Fortes Report
 - [ ] Fase 4 - Usuário e Login
 - [ ] Fase 5 - Criação e Atualização do Banco de Dados
