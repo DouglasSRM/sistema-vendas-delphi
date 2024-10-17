@@ -24,6 +24,7 @@ type
     Produto2: TMenuItem;
     N4: TMenuItem;
     Vendapordata1: TMenuItem;
+    Categoria2: TMenuItem;
     procedure menuFecharClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure Categoria1Click(Sender: TObject);
@@ -31,6 +32,7 @@ type
     procedure Cliente1Click(Sender: TObject);
     procedure Produto1Click(Sender: TObject);
     procedure Venda1Click(Sender: TObject);
+    procedure Categoria2Click(Sender: TObject);
   private
     TeclaEnter: TMREnter;
     procedure AtualizacaoBancoDados(aForm: TfrmAtualizaDB);
@@ -45,13 +47,20 @@ implementation
 
 {$R *.dfm}
 
-uses uCadCategoria, uCadCliente, uCadProduto, uProVenda;
+uses uCadCategoria, uCadCliente, uCadProduto, uProVenda, uRelCategoria;
 
 procedure TfrmPrincipal.Categoria1Click(Sender: TObject);
 begin
   frmCadCategoria := TfrmCadCategoria.Create(self);
   frmCadCategoria.ShowModal;
   frmCadCategoria.Release;
+end;
+
+procedure TfrmPrincipal.Categoria2Click(Sender: TObject);
+begin
+  frmRelCategoria := TfrmRelCategoria.Create(Self);
+  frmRelCategoria.Relatorio.PreviewModal;
+  frmRelCategoria.Release;
 end;
 
 procedure TfrmPrincipal.Cliente1Click(Sender: TObject);
@@ -94,6 +103,7 @@ begin
       Connected := False;
 
       SQLHourGlass := True;
+      LibraryLocation := 'C:\libpq.dll';
       HostName := 'localhost';
       Database := 'vendas';
       User := 'postgres';

@@ -15,6 +15,7 @@ object dtmPrincipal: TdtmPrincipal
     User = 'postgres'
     Password = 'admin'
     Protocol = 'postgresql'
+    LibraryLocation = 'C:\libpq.dll'
     Left = 48
     Top = 48
   end
