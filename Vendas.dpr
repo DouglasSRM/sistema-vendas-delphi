@@ -20,7 +20,8 @@ uses
   cProVenda in 'classes\cProVenda.pas',
   cControleEstoque in 'classes\cControleEstoque.pas',
   uRelCategoria in 'relatorio\uRelCategoria.pas' {frmRelCategoria},
-  uRelCadCliente in 'relatorio\uRelCadCliente.pas' {frmRelClientes};
+  uRelCadClienteFicha in 'relatorio\uRelCadClienteFicha.pas' {frmRelCadClienteFicha},
+  uRelCadCliente in 'relatorio\uRelCadCliente.pas' {frmRelCadCliente};
 
 {$R *.res}
 

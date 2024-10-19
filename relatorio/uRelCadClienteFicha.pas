@@ -1,4 +1,4 @@
-unit uRelCadCliente;
+unit uRelCadClienteFicha;
 
 interface
 
@@ -6,10 +6,10 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, RLReport, Vcl.StdCtrls, RLXLSFilter,
   RLXLSXFilter, RLFilters, RLPDFFilter, Data.DB, ZAbstractRODataset,
-  ZAbstractDataset, ZDataset, uDTMConexao;
+  ZAbstractDataset, ZDataset, uDTMConexao, Vcl.Imaging.pngimage;
 
 type
-  TfrmRelCadCliente = class(TForm)
+  TfrmRelCadClienteFicha = class(TForm)
     QryClientes: TZQuery;
     dtsClientes: TDataSource;
     QryClientesclienteid: TZIntegerField;
@@ -23,15 +23,9 @@ type
     Rodape: TRLBand;
     RLDraw2: TRLDraw;
     RLSystemInfo1: TRLSystemInfo;
-    RLBand2: TRLBand;
-    RLPanel1: TRLPanel;
     pdfFilter: TRLPDFFilter;
     RLXLSXFilter1: TRLXLSXFilter;
     RLXLSFilter1: TRLXLSFilter;
-    RLLabel2: TRLLabel;
-    RLLabel3: TRLLabel;
-    RLLabel6: TRLLabel;
-    RLLabel7: TRLLabel;
     RLBand1: TRLBand;
     RLDBText1: TRLDBText;
     RLDBText2: TRLDBText;
@@ -41,6 +35,30 @@ type
     RLLabel9: TRLLabel;
     RLSystemInfo2: TRLSystemInfo;
     RLSystemInfo3: TRLSystemInfo;
+    RLLabel4: TRLLabel;
+    RLLabel5: TRLLabel;
+    RLLabel10: TRLLabel;
+    RLLabel11: TRLLabel;
+    QryClientesendereco: TZUnicodeStringField;
+    QryClientescidade: TZUnicodeStringField;
+    QryClientesbairro: TZUnicodeStringField;
+    QryClientesestado: TZUnicodeStringField;
+    QryClientescep: TZUnicodeStringField;
+    QryClientesdatanascimento: TZDateTimeField;
+    RLLabel2: TRLLabel;
+    RLDBText5: TRLDBText;
+    RLLabel3: TRLLabel;
+    RLDBText6: TRLDBText;
+    RLLabel6: TRLLabel;
+    RLDBText7: TRLDBText;
+    RLLabel7: TRLLabel;
+    RLDBText8: TRLDBText;
+    RLLabel12: TRLLabel;
+    RLDBText9: TRLDBText;
+    RLLabel13: TRLLabel;
+    RLDBText10: TRLDBText;
+    RLDraw3: TRLDraw;
+    RLAngleLabel1: TRLAngleLabel;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   private
@@ -50,18 +68,18 @@ type
   end;
 
 var
-  frmRelCadCliente: TfrmRelCadCliente;
+  frmRelCadClienteFicha: TfrmRelCadClienteFicha;
 
 implementation
 
 {$R *.dfm}
 
-procedure TfrmRelCadCliente.FormCreate(Sender: TObject);
+procedure TfrmRelCadClienteFicha.FormCreate(Sender: TObject);
 begin
   QryClientes.Open;
 end;
 
-procedure TfrmRelCadCliente.FormDestroy(Sender: TObject);
+procedure TfrmRelCadClienteFicha.FormDestroy(Sender: TObject);
 begin
   QryClientes.Close;
 end;

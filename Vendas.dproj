@@ -175,8 +175,12 @@
             <Form>frmRelCategoria</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="relatorio\uRelCadClienteFicha.pas">
+            <Form>frmRelCadClienteFicha</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <DCCReference Include="relatorio\uRelCadCliente.pas">
-            <Form>frmRelClientes</Form>
+            <Form>frmRelCadCliente</Form>
             <FormType>dfm</FormType>
         </DCCReference>
         <BuildConfiguration Include="Base">

@@ -1,4 +1,4 @@
-object frmRelClientes: TfrmRelClientes
+object frmRelCadCliente: TfrmRelCadCliente
   Left = 0
   Top = 0
   AutoSize = True
