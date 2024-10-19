@@ -2,6 +2,7 @@ program Vendas;
 
 uses
   Vcl.Forms,
+  Winapi.Windows,
   uPrincipal in 'uPrincipal.pas' {frmPrincipal},
   uDTMConexao in 'datamodule\uDTMConexao.pas' {dtmPrincipal: TDataModule},
   uTelaHeranca in 'heranca\uTelaHeranca.pas' {frmTelaHeranca},
@@ -18,11 +19,13 @@ uses
   uProVenda in 'processo\uProVenda.pas' {frmProVenda},
   cProVenda in 'classes\cProVenda.pas',
   cControleEstoque in 'classes\cControleEstoque.pas',
-  uRelCategoria in 'relatorio\uRelCategoria.pas' {frmRelCategoria};
+  uRelCategoria in 'relatorio\uRelCategoria.pas' {frmRelCategoria},
+  uRelCadCliente in 'relatorio\uRelCadCliente.pas' {frmRelClientes};
 
 {$R *.res}
 
 begin
+  SetProcessDPIAware;
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.CreateForm(TfrmPrincipal, frmPrincipal);

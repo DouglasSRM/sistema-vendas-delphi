@@ -175,6 +175,10 @@
             <Form>frmRelCategoria</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="relatorio\uRelCadCliente.pas">
+            <Form>frmRelClientes</Form>
+            <FormType>dfm</FormType>
+        </DCCReference>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

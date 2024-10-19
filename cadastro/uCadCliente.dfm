@@ -3,12 +3,10 @@ inherited frmCadCliente: TfrmCadCliente
   StyleElements = [seFont, seClient, seBorder]
   TextHeight = 15
   inherited pgcPrincipal: TPageControl
-    ActivePage = tabManutencao
-    ExplicitWidth = 782
-    ExplicitHeight = 479
     inherited tabListagem: TTabSheet
       inherited pnlListagemTopo: TPanel
         StyleElements = [seFont, seClient, seBorder]
+        ExplicitWidth = 934
         inherited lblIndice: TLabel
           StyleElements = [seFont, seClient, seBorder]
         end
@@ -80,15 +78,15 @@ inherited frmCadCliente: TfrmCadCliente
     end
     inherited tabManutencao: TTabSheet
       object lbCEP: TLabel
-        Left = 680
+        Left = 826
         Top = 54
         Width = 21
         Height = 15
         Caption = 'CEP'
       end
       object lbTelefone: TLabel
-        Left = 360
-        Top = 149
+        Left = 472
+        Top = 151
         Width = 44
         Height = 15
         Caption = 'Telefone'
@@ -118,7 +116,7 @@ inherited frmCadCliente: TfrmCadCliente
         Tag = 2
         Left = 136
         Top = 72
-        Width = 529
+        Width = 673
         Height = 23
         EditLabel.Width = 33
         EditLabel.Height = 15
@@ -129,9 +127,9 @@ inherited frmCadCliente: TfrmCadCliente
         OnChange = edtNomeChange
       end
       object edtCEP: TMaskEdit
-        Left = 680
+        Left = 826
         Top = 72
-        Width = 69
+        Width = 81
         Height = 23
         EditMask = '99.999-999;1;_'
         MaxLength = 10
@@ -141,7 +139,7 @@ inherited frmCadCliente: TfrmCadCliente
       object edtEndereco: TLabeledEdit
         Left = 16
         Top = 120
-        Width = 329
+        Width = 441
         Height = 23
         EditLabel.Width = 49
         EditLabel.Height = 15
@@ -152,9 +150,9 @@ inherited frmCadCliente: TfrmCadCliente
         OnChange = edtEnderecoChange
       end
       object edtBairro: TLabeledEdit
-        Left = 360
+        Left = 472
         Top = 120
-        Width = 389
+        Width = 435
         Height = 23
         EditLabel.Width = 31
         EditLabel.Height = 15
@@ -167,7 +165,7 @@ inherited frmCadCliente: TfrmCadCliente
       object edtCidade: TLabeledEdit
         Left = 16
         Top = 168
-        Width = 329
+        Width = 441
         Height = 23
         EditLabel.Width = 37
         EditLabel.Height = 15
@@ -178,9 +176,9 @@ inherited frmCadCliente: TfrmCadCliente
         OnChange = edtCidadeChange
       end
       object edtTelefone: TMaskEdit
-        Left = 360
+        Left = 472
         Top = 168
-        Width = 113
+        Width = 159
         Height = 23
         EditMask = '(99) 99999-9999;1;_'
         MaxLength = 15
@@ -188,7 +186,7 @@ inherited frmCadCliente: TfrmCadCliente
         Text = '(  )      -    '
       end
       object edtEmail: TLabeledEdit
-        Left = 488
+        Left = 646
         Top = 168
         Width = 261
         Height = 23
@@ -214,11 +212,9 @@ inherited frmCadCliente: TfrmCadCliente
   end
   inherited pnlRodape: TPanel
     StyleElements = [seFont, seClient, seBorder]
-    ExplicitTop = 479
-    ExplicitWidth = 782
     inherited btnFechar: TBitBtn
-      Left = 672
-      ExplicitLeft = 670
+      Left = 830
+      ExplicitLeft = 672
     end
     inherited btnNavigator: TDBNavigator
       Hints.Strings = ()

@@ -14,14 +14,15 @@ type
     dtsCategorias: TDataSource;
     QryCategoriascategoriaid: TZIntegerField;
     QryCategoriasdescricao: TZUnicodeStringField;
+    pdfFilter: TRLPDFFilter;
+    RLXLSXFilter1: TRLXLSXFilter;
+    RLXLSFilter1: TRLXLSFilter;
     Relatorio: TRLReport;
     Cabecalho: TRLBand;
     RLLabel1: TRLLabel;
     RLDraw1: TRLDraw;
-    RLPDFFilter1: TRLPDFFilter;
     Rodape: TRLBand;
     RLDraw2: TRLDraw;
-    RLSystemInfo1: TRLSystemInfo;
     RLBand1: TRLBand;
     RLDBText1: TRLDBText;
     RLDBText2: TRLDBText;
@@ -29,8 +30,11 @@ type
     RLPanel1: TRLPanel;
     RLLabel5: TRLLabel;
     RLLabel4: TRLLabel;
-    RLXLSXFilter1: TRLXLSXFilter;
-    RLXLSFilter1: TRLXLSFilter;
+    RLSystemInfo1: TRLSystemInfo;
+    RLLabel8: TRLLabel;
+    RLSystemInfo2: TRLSystemInfo;
+    RLLabel9: TRLLabel;
+    RLSystemInfo3: TRLSystemInfo;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   private
@@ -49,6 +53,7 @@ implementation
 procedure TfrmRelCategoria.FormCreate(Sender: TObject);
 begin
   QryCategorias.Open;
+
 end;
 
 procedure TfrmRelCategoria.FormDestroy(Sender: TObject);

@@ -1,9 +1,10 @@
 object frmRelCategoria: TfrmRelCategoria
   Left = 0
   Top = 0
+  AutoSize = True
   Caption = 'frmRelCategoria'
-  ClientHeight = 799
-  ClientWidth = 1005
+  ClientHeight = 1061
+  ClientWidth = 794
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -14,39 +15,40 @@ object frmRelCategoria: TfrmRelCategoria
   OnDestroy = FormDestroy
   TextHeight = 15
   object Relatorio: TRLReport
-    Left = -8
-    Top = -16
-    Width = 992
-    Height = 1403
+    Left = 0
+    Top = 0
+    Width = 794
+    Height = 1123
     DataSource = dtsCategorias
+    DefaultFilter = pdfFilter
     Font.Charset = DEFAULT_CHARSET
-    Font.Color = clBlack
-    Font.Height = -17
-    Font.Name = 'Arial'
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
     Font.Style = []
     object Cabecalho: TRLBand
-      Left = 47
-      Top = 47
-      Width = 898
-      Height = 66
+      Left = 38
+      Top = 38
+      Width = 718
+      Height = 52
       BandType = btHeader
       object RLLabel1: TRLLabel
         Left = 3
-        Top = 16
-        Width = 320
-        Height = 32
+        Top = 3
+        Width = 245
+        Height = 24
         Caption = 'Listagem de Categorias'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clBlack
-        Font.Height = -27
+        Font.Height = -21
         Font.Name = 'Arial'
         Font.Style = [fsBold]
         ParentFont = False
       end
       object RLDraw1: TRLDraw
         Left = 0
-        Top = 43
-        Width = 898
+        Top = 29
+        Width = 718
         Height = 23
         Align = faBottom
         DrawKind = dkLine
@@ -54,64 +56,138 @@ object frmRelCategoria: TfrmRelCategoria
       end
     end
     object Rodape: TRLBand
-      Left = 47
-      Top = 163
-      Width = 898
+      Left = 38
+      Top = 140
+      Width = 718
       Height = 47
       BandType = btFooter
       object RLDraw2: TRLDraw
         Left = 0
         Top = 0
-        Width = 898
+        Width = 718
         Height = 23
         Align = faTop
         DrawKind = dkLine
         Pen.Width = 2
       end
       object RLSystemInfo1: TRLSystemInfo
-        Left = 0
-        Top = 23
-        Width = 76
-        Height = 19
+        Left = 3
+        Top = 16
+        Width = 58
+        Height = 16
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
         Info = itFullDate
+        ParentFont = False
+        Text = ''
+      end
+      object RLLabel8: TRLLabel
+        Left = 606
+        Top = 16
+        Width = 44
+        Height = 16
+        Caption = 'P'#225'gina'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Style = []
+        ParentFont = False
+      end
+      object RLSystemInfo2: TRLSystemInfo
+        Left = 656
+        Top = 16
+        Width = 17
+        Height = 16
+        Alignment = taRightJustify
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Info = itPageNumber
+        ParentFont = False
+        Text = ''
+      end
+      object RLLabel9: TRLLabel
+        Left = 679
+        Top = 16
+        Width = 8
+        Height = 16
+        Caption = '/'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -13
+        Font.Name = 'Arial'
+        Font.Style = []
+        ParentFont = False
+      end
+      object RLSystemInfo3: TRLSystemInfo
+        Left = 693
+        Top = 16
+        Width = 17
+        Height = 16
+        Alignment = taRightJustify
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        Info = itLastPageNumber
+        ParentFont = False
         Text = ''
       end
     end
     object RLBand1: TRLBand
-      Left = 47
-      Top = 139
-      Width = 898
-      Height = 24
+      Left = 38
+      Top = 112
+      Width = 718
+      Height = 28
       object RLDBText1: TRLDBText
         Left = 0
-        Top = 1
-        Width = 86
-        Height = 19
+        Top = 5
+        Width = 70
+        Height = 17
         DataField = 'categoriaid'
         DataSource = dtsCategorias
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         Text = ''
       end
       object RLDBText2: TRLDBText
-        Left = 92
-        Top = 1
-        Width = 77
-        Height = 19
+        Left = 88
+        Top = 5
+        Width = 60
+        Height = 17
         DataField = 'descricao'
         DataSource = dtsCategorias
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Segoe UI'
+        Font.Style = []
+        ParentFont = False
         Text = ''
       end
     end
     object RLBand2: TRLBand
-      Left = 47
-      Top = 113
-      Width = 898
-      Height = 26
+      Left = 38
+      Top = 90
+      Width = 718
+      Height = 22
       BandType = btColumnHeader
       object RLPanel1: TRLPanel
         Left = 0
         Top = 0
-        Width = 898
-        Height = 26
+        Width = 718
+        Height = 22
         Align = faClient
         Color = clInfoBk
         ParentColor = False
@@ -119,25 +195,25 @@ object frmRelCategoria: TfrmRelCategoria
         object RLLabel5: TRLLabel
           Left = 0
           Top = 2
-          Width = 61
-          Height = 19
+          Width = 49
+          Height = 16
           Caption = 'C'#243'digo'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -17
+          Font.Height = -13
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           ParentFont = False
         end
         object RLLabel4: TRLLabel
-          Left = 92
+          Left = 88
           Top = 2
-          Width = 83
-          Height = 19
+          Width = 66
+          Height = 16
           Caption = 'Descri'#231#227'o'
           Font.Charset = DEFAULT_CHARSET
           Font.Color = clBlack
-          Font.Height = -17
+          Font.Height = -13
           Font.Name = 'Arial'
           Font.Style = [fsBold]
           ParentFont = False
@@ -147,11 +223,12 @@ object frmRelCategoria: TfrmRelCategoria
   end
   object QryCategorias: TZQuery
     Connection = dtmPrincipal.ConexaoDB
+    Active = True
     SQL.Strings = (
       'SELECT categoriaId, descricao from categorias')
     Params = <>
-    Left = 680
-    Top = 280
+    Left = 544
+    Top = 312
     object QryCategoriascategoriaid: TZIntegerField
       FieldName = 'categoriaid'
     end
@@ -163,25 +240,26 @@ object frmRelCategoria: TfrmRelCategoria
   end
   object dtsCategorias: TDataSource
     DataSet = QryCategorias
-    Left = 824
-    Top = 288
+    Left = 624
+    Top = 312
   end
-  object RLPDFFilter1: TRLPDFFilter
+  object pdfFilter: TRLPDFFilter
     DocumentInfo.Creator = 
       'FortesReport Community Edition v4.0.1.2 \251 Copyright '#169' 1999-20' +
       '21 Fortes Inform'#225'tica'
+    FileName = 'C:\Users\dougl\OneDrive\'#193'rea de Trabalho\f.pdf'
     DisplayName = 'Documento PDF'
-    Left = 680
-    Top = 416
+    Left = 536
+    Top = 408
   end
   object RLXLSXFilter1: TRLXLSXFilter
     DisplayName = 'Planilha Excel'
-    Left = 768
-    Top = 432
+    Left = 608
+    Top = 400
   end
   object RLXLSFilter1: TRLXLSFilter
     DisplayName = 'Planilha Excel 97-2013'
-    Left = 864
-    Top = 432
+    Left = 688
+    Top = 408
   end
 end

@@ -3,8 +3,8 @@ object frmTelaHeranca: TfrmTelaHeranca
   Top = 0
   BorderStyle = bsDialog
   Caption = 'INFORME AQUI O T'#205'TULO'
-  ClientHeight = 541
-  ClientWidth = 784
+  ClientHeight = 646
+  ClientWidth = 942
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,20 +19,23 @@ object frmTelaHeranca: TfrmTelaHeranca
   object pgcPrincipal: TPageControl
     Left = 0
     Top = 0
-    Width = 784
-    Height = 487
+    Width = 942
+    Height = 592
     ActivePage = tabListagem
     Align = alClient
     TabOrder = 0
+    ExplicitWidth = 784
+    ExplicitHeight = 487
     object tabListagem: TTabSheet
       Caption = 'Listagem'
       object pnlListagemTopo: TPanel
         Left = 0
         Top = 0
-        Width = 776
+        Width = 934
         Height = 81
         Align = alTop
         TabOrder = 0
+        ExplicitWidth = 776
         object lblIndice: TLabel
           Left = 20
           Top = 13
@@ -63,8 +66,8 @@ object frmTelaHeranca: TfrmTelaHeranca
       object grdListagem: TDBGrid
         Left = 0
         Top = 81
-        Width = 776
-        Height = 376
+        Width = 934
+        Height = 481
         Align = alClient
         DataSource = dtsListagem
         Options = [dgTitles, dgIndicator, dgColLines, dgRowLines, dgTabs, dgRowSelect, dgAlwaysShowSelection, dgCancelOnExit, dgTitleClick, dgTitleHotTrack]
@@ -86,13 +89,15 @@ object frmTelaHeranca: TfrmTelaHeranca
   end
   object pnlRodape: TPanel
     Left = 0
-    Top = 487
-    Width = 784
+    Top = 592
+    Width = 942
     Height = 54
     Align = alBottom
     TabOrder = 1
+    ExplicitTop = 487
+    ExplicitWidth = 784
     DesignSize = (
-      784
+      942
       54)
     object btnNovo: TBitBtn
       Left = 12
@@ -275,7 +280,7 @@ object frmTelaHeranca: TfrmTelaHeranca
       OnClick = btnApagarClick
     end
     object btnFechar: TBitBtn
-      Left = 676
+      Left = 834
       Top = 13
       Width = 75
       Height = 25
@@ -310,7 +315,7 @@ object frmTelaHeranca: TfrmTelaHeranca
         11B2050FB10107A0000188FF00FFFF00FFFF00FFFF00FFFF00FF}
       TabOrder = 5
       OnClick = btnFecharClick
-      ExplicitLeft = 678
+      ExplicitLeft = 676
     end
     object btnNavigator: TDBNavigator
       Left = 428

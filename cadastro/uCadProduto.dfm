@@ -3,12 +3,10 @@ inherited frmCadProduto: TfrmCadProduto
   StyleElements = [seFont, seClient, seBorder]
   TextHeight = 15
   inherited pgcPrincipal: TPageControl
-    ExplicitWidth = 782
-    ExplicitHeight = 479
+    ActivePage = tabManutencao
     inherited tabListagem: TTabSheet
       inherited pnlListagemTopo: TPanel
         StyleElements = [seFont, seClient, seBorder]
-        ExplicitWidth = 774
         inherited lblIndice: TLabel
           StyleElements = [seFont, seClient, seBorder]
         end
@@ -77,7 +75,7 @@ inherited frmCadProduto: TfrmCadProduto
         Caption = 'Quantidade'
       end
       object lbCategoria: TLabel
-        Left = 448
+        Left = 528
         Top = 126
         Width = 51
         Height = 15
@@ -101,7 +99,7 @@ inherited frmCadProduto: TfrmCadProduto
         Tag = 2
         Left = 16
         Top = 144
-        Width = 417
+        Width = 497
         Height = 23
         EditLabel.Width = 33
         EditLabel.Height = 15
@@ -114,7 +112,7 @@ inherited frmCadProduto: TfrmCadProduto
       object edtDescricao: TMemo
         Left = 16
         Top = 208
-        Width = 735
+        Width = 897
         Height = 89
         MaxLength = 255
         TabOrder = 3
@@ -135,9 +133,9 @@ inherited frmCadProduto: TfrmCadProduto
         TabOrder = 5
       end
       object lkpCategoria: TDBLookupComboBox
-        Left = 448
+        Left = 528
         Top = 144
-        Width = 303
+        Width = 385
         Height = 23
         KeyField = 'categoriaid'
         ListField = 'descricao'
@@ -148,11 +146,9 @@ inherited frmCadProduto: TfrmCadProduto
   end
   inherited pnlRodape: TPanel
     StyleElements = [seFont, seClient, seBorder]
-    ExplicitTop = 479
-    ExplicitWidth = 782
     inherited btnFechar: TBitBtn
-      Left = 674
-      ExplicitLeft = 672
+      Left = 832
+      ExplicitLeft = 674
     end
     inherited btnNavigator: TDBNavigator
       Hints.Strings = ()
